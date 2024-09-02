@@ -1,0 +1,40 @@
+<html>
+  
+  <head>
+    <script
+       src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+       data-sap-ui-theme="sap_fiori_3_dark"
+       data-sap-ui-libs="sap.m"
+       data-sap-ui-bindingSyntax="complex"
+       data-sap-ui-resourceroots='{
+	       "emc.fin.ar":"./"
+       }'>
+    </script>
+    
+    <script>
+      var oMain = new sap.ui.view({
+	    viewName: "emc.fin.ar.view.Main",
+	    type: "XML",
+	    id:"idMain" 
+      });
+      
+      var oMaster = new sap.ui.view({
+	      viewName:"emc.fin.ar.view.Master",
+	      type: "XML",
+	      id:"idMaster"
+})
+
+      var oAppCon = oMain.byId("appCon");
+      
+      oAppCon.addPage(oMaster);
+      
+      oMain.placeAt("content");
+      
+    </script>
+  </head>
+  
+  <body class="sapUiBody">
+     <div id="content"/>
+  </body>
+  
+</html>

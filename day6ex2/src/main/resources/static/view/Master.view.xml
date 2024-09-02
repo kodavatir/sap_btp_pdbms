@@ -1,0 +1,91 @@
+<core:View xmlns:core="sap.ui.core.mvc" xmlns="sap.m" xmlns:t="sap.ui.table"
+ controllerName="emc.fin.ar.controller.Master"
+ 	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form">
+ <Page title="Vendor Registration">
+<VBox class="sapUiSmallMargin">
+		<f:SimpleForm id="SimpleFormChange354"
+			editable="true"
+			layout="ResponsiveGridLayout"
+			title="Address"
+			labelSpanXL="3"
+			labelSpanL="3"
+			labelSpanM="3"
+			labelSpanS="12"
+			adjustLabelSpan="false"
+			emptySpanXL="4"
+			emptySpanL="4"
+			emptySpanM="4"
+			emptySpanS="0"
+			columnsXL="1"
+			columnsL="1"
+			columnsM="1"
+			singleContainerFullSize="false" >
+			<f:content>
+				<Label text="Company Name" />
+				<Input id="name" value="{/newVendor/companyName}" />
+				<Label text="Name" />
+				<Input value="{/newVendor/contactName}">
+				</Input>
+				<Input value="{/newVendor/lastName}">
+					<layoutData>
+						<l:GridData span="XL1 L2 M2 S4" />
+					</layoutData>
+				</Input>
+				<Label text="web / email" />
+				<Input value="{/newVendor/website}">
+					<layoutData>
+						<l:GridData span="XL1 L2 M2 S4" />
+					</layoutData>
+				</Input>
+				<Input value="{/newVendor/email}" />
+			</f:content>
+		</f:SimpleForm>
+	</VBox>
+
+    <content>
+      <t:Table rows="{/vendors}"> 
+        <t:columns>
+          <t:Column>
+            <Label text="COMPANY" />
+            <t:template>
+              <Text text="{companyName}" />
+            </t:template>
+          </t:Column>
+          <t:Column>
+            <Label text="CONTACT" />
+            <t:template>
+              <Text text="{contactName} {lastName}" />
+            </t:template>
+          </t:Column>
+          <t:Column>
+            <Label text="WEBSITE" />
+            <t:template>
+              <Text text="{website}" />
+            </t:template>
+          </t:Column>
+          <t:Column>
+            <Label text="EMAIL" />
+            <t:template>
+              <Text text="{email}" />
+            </t:template>
+          </t:Column>
+          <t:Column>
+            <Label text="CITY" />
+            <t:template>
+              <Text text="{address/0/city}" />
+            </t:template>
+          </t:Column>
+        </t:columns>
+      </t:Table>
+    </content>
+
+    <footer> 
+     <Toolbar >
+      <ToolbarSpacer />
+        <Button text="Save" press="onSave" icon="sap-icon://save"/>
+     </Toolbar>
+    </footer>
+
+ </Page>
+</core:View>
